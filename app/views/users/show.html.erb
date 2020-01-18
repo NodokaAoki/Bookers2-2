@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<!-- サイドバー -->
+		<div class="col-lg-3">
+		<!-- プロフィール -->
+			<%= render 'users/userprofile', user: @user %>
+		<!-- /プロフィール -->
+
+		<!-- 投稿フォーム -->
+			<%= render 'books/editbook', book: @book %>
+		<!-- /投稿フォーム -->
+		</div>
+		<!-- /サイドバー -->
+
+		<!-- Books -->
+		<div class="col-lg-9">
+			<%= render 'books/books_list', books: @books %>
+		</div>
+		<!-- /Books -->
+	</div>
+
+</div>

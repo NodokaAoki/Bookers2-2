@@ -1,0 +1,36 @@
+<body>
+	<!-- Books一覧 -->
+	<h1>Books</h1>
+	<table class="table">
+	  	<% @books.each do |book| %>
+	  	<thead>
+	  		<tr>
+	  			<th></th>
+	  			<th>Title</th>
+	  			<th>Opinion</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<tr>
+	  		<td><%= attachment_image_tag book.user,:profile_image, size:"30x30" %></td>
+	  		<td><%= book.title %></td>
+			<td><%= book.body %></td>
+	  		</tr>
+	  	</tbody>
+	  	<% end %>
+ 	</table>
+
+
+	<!-- 投稿フォーム -->
+	<%= form_for(@book) do |f| %>
+	Title<br>
+	<%= f.text_field :title %><br>
+
+	Opinion<br>
+	<%= f.text_area :body %><br>
+
+	<%= f.submit 'Create Book'%>
+
+	<% end %>
+
+</body>

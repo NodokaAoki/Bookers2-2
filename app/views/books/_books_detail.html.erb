@@ -1,10 +1,10 @@
-<div class="col-lg-9">
-	<h1>Book detail</h1>
+	<h2>Book detail</h2>
 			<table class="table">
-			<td><%= attachment_image_tag book.user, :profile_image, size:"30x30" %></td>
-	  		<td><%= book.title %></td>
+			<td><%= attachment_image_tag book.user, :profile_image, size:"30x30", fallback:"/assets/NoImage.png" %><br><%= link_to user.name,user_path(user.id) %></td>
+	  		<td><%= link_to book.title %></td>
 			<td><%= book.body %></td>
-			<td>Edit</td>
-			<td>Destroy</td>
+        <% if user.id == current_user.id %>
+			<td><%= link_to "Edit", edit_book_path(book.id), class:"btn btn-success btn-sm" %></td>
+			<td><%= link_to "Destroy", books_path(book.id), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-danger btn-sm" %></td>
+		<% end %>
 		</table>
-</div>

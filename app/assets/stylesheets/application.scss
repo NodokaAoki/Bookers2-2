@@ -16,7 +16,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 header{
-	background-color: black;
 	color: white;
+}
+
+header .navbar-left{
+	font-size:20px;
+	padding-top:10px;
+}
+
+a{
+  color: #666;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.user-edit{
+	width:100%;
+}
+
+.btn-primary{
+  width:100%;
+}
+
+.btn-danger{
+  color: #666;
+}
+
+.edit-book-text{
+  width:100%;
+}
+
+footer{
+	text-align: right;
 }

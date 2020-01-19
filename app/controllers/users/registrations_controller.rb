@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
-      redirect_to user_path if user_signed_in?
+      redirect_to books_path if user_signed_in?
       super
    end
 
@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-  user_path
+     books_path
    end
 
 

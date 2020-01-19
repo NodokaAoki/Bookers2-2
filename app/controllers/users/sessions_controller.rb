@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-    redirect_to user_path if user_signed_in?
+    redirect_to books_path if user_signed_in?
      super
    end
 

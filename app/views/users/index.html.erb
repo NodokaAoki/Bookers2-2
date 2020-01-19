@@ -1,19 +1,39 @@
-<h1>Users</h1>
-	<table class="table">
-	  	<thead>
-	  		<tr>
-	  			<th>image</th>
-	  			<th>name</th>
-	  			<th></th>
-	  		</tr>
-	  	</thead>
-	  	<tbody>
-	  	<% @users.each do |user| %>
-	  		<tr>
-	  		<td><%= attachment_image_tag user,:profile_image, size:"30x30" %></td>
-	  		<td><%= user.name %></td>
-			<td><%= link_to "Show", user_path(user.id) %></td>
-	  		</tr>
-	  	<% end %>
-	  	</tbody>
- 	</table>
+<body>
+	<div class="row">
+	<!-- サイドバー -->
+		<div class="col-lg-3">
+			<!-- プロフィール -->
+				<%= render 'users/userprofile', user: @user %>
+			<!-- /プロフィール -->
+
+			<!-- 投稿フォーム -->
+				<%= render 'books/editbook', book: @book %>
+			<!-- /投稿フォーム -->
+			</div>
+	<!-- サイドバー -->
+
+	<!-- ユーザー一覧 -->
+	<div class="col-lg-9">
+	<h1>Users</h1>
+		<table class="table">
+		  	<thead>
+		  		<tr>
+		  			<th>image</th>
+		  			<th>name</th>
+		  			<th></th>
+		  		</tr>
+		  	</thead>
+		  	<tbody>
+		  	<% @users.each do |user| %>
+		  		<tr>
+		  		<td><%= attachment_image_tag user,:profile_image, size:"30x30" %></td>
+		  		<td><%= user.name %></td>
+				<td><%= link_to "Show", user_path(user.id) %></td>
+		  		</tr>
+		  	<% end %>
+		  	</tbody>
+	 	</table>
+	</div>
+	<!-- /ユーザー一覧 -->
+</div>
+</body>

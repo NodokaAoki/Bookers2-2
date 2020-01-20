@@ -46,12 +46,20 @@ a{
 	width:100%;
 }
 
-.btn-primary{
+.btn-update, .btn-create{
   width:100%;
 }
 
 .btn-danger{
   color: #666;
+}
+
+.notice{
+  color:green;
+}
+
+.alert{
+  color:red;
 }
 
 .edit-book-text{

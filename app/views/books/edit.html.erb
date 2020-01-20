@@ -19,7 +19,7 @@
 			<%= f.text_area :body, class: "edit-book-text" %><br>
 		</div>
 		<div class="button">
-			<%= f.submit 'Update Book', class: 'btn btn-primary' %><br>
+			<%= f.submit 'Update Book', class: 'btn btn-primary btn-update' %><br>
 		</div>
 		<%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>
 		<% end %>

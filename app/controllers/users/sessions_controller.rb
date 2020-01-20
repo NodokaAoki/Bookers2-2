@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-    redirect_to books_path if user_signed_in?
+    redirect_to user_path(user.id) if user_signed_in?
      super
    end
 
@@ -18,6 +18,11 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+
+  def after_sign_in_path_for(resource)
+    user=current_user
+    user_path(user.id)
+  end
 
    protected
    def configure_sign_in_params

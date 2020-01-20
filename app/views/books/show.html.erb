@@ -8,18 +8,27 @@
 		<!-- サイドバー -->
 		<div class="col-xs-3">
 		<!-- プロフィール -->
-			<%= render 'users/userprofile', book: @book, user: @user %>
+		<%= render 'users/userprofile', user: @user %>
 		<!-- /プロフィール -->
 
 		<!-- 投稿フォーム -->
-			<%= render 'books/editbook', book: @newbook %>
+		<%= render 'books/editbook', book: @newbook %>
 		<!-- /投稿フォーム -->
 		</div>
 		<!-- /サイドバー -->
 
 		<div class="col-xs-9">
 		<!-- Books detail -->
-			<%= render 'books/books_detail', book: @book, user:@user %>
+		<h2>Book detail</h2>
+					<table class="table">
+					<td><%= attachment_image_tag @book.user, :profile_image, size:"30x30", fallback:"/assets/NoImage.png" %><br><%= link_to @user.name,user_path(@user.id) %></td>
+			  		<td><%= link_to @book.title %></td>
+					<td><%= @book.body %></td>
+		        <% if @user.id == current_user.id %>
+					<td><%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success btn-sm" %></td>
+					<td><%= link_to "Destroy", books_path(@book.id), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-danger btn-sm" %></td>
+				<% end %>
+				</table>
 		<!-- /Books -->
 		</div>
 

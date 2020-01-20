@@ -1,16 +1,22 @@
-
+<% if flash[:success] %>
+  <div class="flash">
+  <p>
+  	<%= flash[:success] %>
+  </p>
+  </div>
+<% end %>
 
 		<!-- サイドバー -->
 		<div class="col-xs-3">
-			<!-- プロフィール -->
-				<%= render 'users/userprofile', user: @user %>
-			<!-- /プロフィール -->
+		<!-- プロフィール -->
+		<%= render 'users/userprofile', user: @user %>
+		<!-- /プロフィール -->
 
-			<!-- 投稿フォーム -->
-				<%= render 'books/editbook', book: @book %>
-			<!-- /投稿フォーム -->
+		<!-- 投稿フォーム -->
+		<%= render 'books/editbook', book: @newbook %>
+		<!-- /投稿フォーム -->
 		</div>
-		<!-- サイドバー -->
+		<!-- /サイドバー -->
 
 		<!-- ユーザー一覧 -->
 		<div class="col-xs-9">

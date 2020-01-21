@@ -1,9 +1,12 @@
-<% if flash[:success] %>
-  <div class="flash">
-  <p>
-  	<%= flash[:success] %>
-  </p>
-  </div>
+<% if @newbook.errors.any? %>
+	<div id="error_explanation">
+		<h2 class="error_count"><%= @newbook.errors.count %>error prohibited this book from being saved:</h2>
+	<ul>
+		<% @newbook.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+	</div>
 <% end %>
 		<!-- サイドバー -->
 		<div class="col-xs-3">
@@ -21,7 +24,7 @@
 		<!-- Books detail -->
 		<h2>Book detail</h2>
 					<table class="table">
-					<td><%= attachment_image_tag @book.user, :profile_image, size:"30x30", fallback:"/assets/NoImage.png" %><br><%= link_to @user.name,user_path(@user.id) %></td>
+					<td><%= attachment_image_tag @book.user, :profile_image, size:"40x40", fallback:"/assets/NoImage.png" %><br><%= link_to @user.name,user_path(@user.id) %></td>
 			  		<td><%= link_to @book.title %></td>
 					<td><%= @book.body %></td>
 		        <% if @user.id == current_user.id %>

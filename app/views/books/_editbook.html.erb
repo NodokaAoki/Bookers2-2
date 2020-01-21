@@ -3,11 +3,11 @@
 <%= form_for(book) do |f| %>
 
 Title<br>
-<%= f.text_field :title %><br>
+<%= f.text_field :title, class: "field" %><br>
 
 Opinion<br>
-<%= f.text_area :body %><br>
+<%= f.text_area :body, class: "field" %><br>
 
-<%= f.submit 'Create Book', class: 'btn btn-primary book-create' %>
+<%= f.submit 'Create Book', class: 'btn btn-primary btn-create' %>
 
 <% end %>
